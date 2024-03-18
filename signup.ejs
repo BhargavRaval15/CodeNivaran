@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        background-image: url("https://source.unsplash.com/featured/?coding");
+        background-size: cover;
+        background-position: center;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: rgba(164, 185, 209, 0.441);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        width: 320px;
+      }
+
+      .form-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 36px;
+        color: #007bff;
+        background-color: #a9bdd3;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        transition: text-decoration 0.3s, color 0.3s;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: calc(100% - 24px);
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 14px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      p {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 16px;
+      }
+
+      p span {
+        color: #007bff;
+        background-color: #a9bdd3;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      p span:hover {
+        color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/signup">
+      <h2 class="form-title">Create your Account</h2>
+      <input type="text" placeholder="Username" name="username" required />
+      <input type="email" placeholder="Email" name="email" required />
+      <input type="password" placeholder="Password" name="password" required />
+      <button>Sign up</button>
+      <p>
+        <span onclick="location.href='/login';" style="cursor: pointer"
+          >Already have an account?</span
+        >
+      </p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Nivaran</title>
+    <style>
+      /* styles.css */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        opacity: 0; /* Hide initially */
+        transition: opacity 0.5s ease;
+      }
+
+      body.loaded {
+        opacity: 1; /* Fade in when loaded */
+      }
+
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      main {
+        text-align: center;
+        margin: 50px auto; /* Center main content */
+        max-width: 800px; /* Set maximum width */
+        padding: 0 20px; /* Add padding for better layout */
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .login-btn,
+      .signup-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        cursor: pointer; /* Add cursor pointer */
+      }
+
+      .login-btn:hover,
+      .signup-btn:hover {
+        background-color: #0056b3;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      /* Form styles */
+      .form-container {
+        position: relative;
+        width: 320px;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        margin: 0 auto;
+        margin-top: 50px;
+      }
+
+      .form-container.visible {
+        opacity: 1;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+      }
+
+      .form-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: calc(100% - 24px);
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 14px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .switch-link {
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Code Nivaran</h1>
+    </header>
+
+    <main>
+      <div class="buttons" id="buttons">
+        <button class="login-btn" onclick="toggleForm('loginForm')">
+          Login
+        </button>
+        <button class="signup-btn" onclick="toggleForm('signupForm')">
+          Sign Up
+        </button>
+      </div>
+
+      <div class="form-container" id="loginForm">
+        <form method="POST" action="/login">
+          <h2 class="form-title">Log In</h2>
+          <input
+            name="username"
+            placeholder="Enter username"
+            type="text"
+            required
+          />
+          <input
+            name="password"
+            placeholder="Enter password"
+            type="password"
+            required
+          />
+          <button type="submit">Log In</button>
+          <p>
+            Don't have an account?
+            <a class="switch-link" href="#" onclick="toggleForm('signupForm')"
+              >Sign Up</a
+            >
+          </p>
+        </form>
+      </div>
+
+      <div class="form-container" id="signupForm">
+        <form method="POST" action="/signup">
+          <h2 class="form-title">Sign Up</h2>
+          <input name="username" placeholder="Username" type="text" required />
+          <input name="email" placeholder="Email" type="email" required />
+          <input
+            name="password"
+            placeholder="Password"
+            type="password"
+            required
+          />
+          <button type="submit">Sign Up</button>
+          <p>
+            Already have an account?
+            <a class="switch-link" href="#" onclick="toggleForm('loginForm')"
+              >Log In</a
+            >
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Code Nivaran. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Fade in the body when loaded
+      window.onload = function () {
+        document.body.classList.add("loaded");
+      };
+
+      function toggleForm(formId) {
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+
+        if (formId === "loginForm") {
+          loginForm.classList.add("visible");
+          signupForm.classList.remove("visible");
+        } else {
+          loginForm.classList.remove("visible");
+          signupForm.classList.add("visible");
+        }
+      }
+    </script>
+  </body>
+</html>

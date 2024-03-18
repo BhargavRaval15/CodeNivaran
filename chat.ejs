@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <style>
+      body {
+        background-color: #212121;
+        font-family: Arial, sans-serif;
+      }
+
+      .chat-form {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .chat-input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-right: 10px;
+        width: 300px;
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: #212121;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background-color: #424242;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/chats" class="chat-form">
+      <input
+        type="text"
+        placeholder="Enter prompt"
+        name="prompted"
+        required
+        class="chat-input"
+      />
+      <button class="submit-btn">Submit</button>
+    </form>
+  </body>
+</html>
