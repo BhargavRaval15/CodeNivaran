@@ -1,0 +1,126 @@
+ <% let recentResponse = null; %> <% for(let chat of Allchats){ %> <%
+          recentResponse = chat.response; %> <% } %> <% if (recentResponse) {
+          %>
+          <div class="message-container">
+            <p class="response">Prompt : <%= recentResponse %></p>
+            
+          </div>
+          <% } %>
+
+
+
+
+          <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <style>
+      body {
+        background-color: #dcc9c9;
+        color: #0b0a0a;
+        font-family: monospace;
+        line-height: 1.5;
+        padding: 20px;
+        margin: 0;
+      }
+
+      .chat-form {
+        text-align: center;
+        margin-top: 20px;
+        box-sizing: border-box;
+      }
+      .container {
+        border: 2px solid black;
+        margin: auto;
+        width: 50vw;
+        height: 100vh;
+      }
+      .chat-input {
+        padding: 8px;
+        border: 1px solid #3511116e;
+        border-radius: 3px;
+        font-size: 14px;
+        margin-right: 10px;
+        width: 600px;
+        background-color: #000000;
+        color: #000000;
+        position: relative;
+        height: 13%;
+        border-radius: 40px;
+        
+      }
+      .container form {
+        position: relative;
+        top: 75%;
+      }
+
+      .submit-btn {
+        padding: 6px 6px;
+        background-color: #000000;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: relative;
+      }
+
+      .submit-btn:hover {
+        background-color: #222222;
+      }
+      .container button {
+        background-color: #ffffff;
+        border-radius: 30px;
+        position: relative;
+        right: 80px;
+        top: 6px;
+      }
+      .container {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST" action="/chats" class="chat-form">
+        <input
+          type="text"
+          placeholder="Enter prompt"
+          name="prompted"
+          required  
+          class="chat-input"
+        />
+        <button class="submit-btn" type="submit">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="text-white dark:text-black"
+          >
+            <path
+              d="M7 11L12 6L17 11M12 18V7"
+              stroke="black"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
+
+
+
+
+<div>
+          <% let recentResponse = null; %> <% for(let chat of Allchats){ %> <%
+          recentResponse = chat.response; %> <% } %> <% if (recentResponse) { %>
+          <div class="message-container">
+            <p class="response">Prompt : <%= recentResponse %></p>
+          </div>
+          <% } %>

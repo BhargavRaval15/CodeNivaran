@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT Prompt Interface</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        /* Updated background color */
+        background-image: url("https://source.unsplash.com/featured/?coding");
+        background-size: cover;
+      }
+
+      .chat-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        justify-content: center;
+        position: relative;
+        top: 50%;
+        margin: auto auto;
+        margin-top: 10%;
+      }
+
+      .chat-messages {
+        padding: 20px;
+        overflow-y: auto;
+        max-height: 300px; /* Changed height to max-height */
+      }
+
+      .message {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .user {
+        font-weight: bold;
+        color: #007bff;
+        margin-right: 5px;
+      }
+
+      .text {
+        background-color: #f5f5f5; /* Updated background color */
+        padding: 10px;
+        border-radius: 12px;
+        max-width: 70%;
+        word-wrap: break-word;
+      }
+
+      .chat-input {
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .input-box {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        outline: none;
+      }
+
+      .send-btn {
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .send-btn:hover {
+        background-color: #0056b3;
+      }
+
+      .hisbtn {
+        margin-top: 20px;
+
+        float: right;
+        margin-right: 20px;
+      }
+
+      .hisbtn button {
+        width: 120px; /* Adjusted button width */
+        padding: 10px;
+        background-color: #000000;
+        border: 2px solid black;
+        color: #fff;
+        font-size: 17px;
+        border-radius: 30px;
+        cursor: pointer; /* Added cursor pointer */
+        transition: background-color 0.3s ease; /* Moved transition property */
+      }
+
+      .hisbtn button:hover {
+        background-color: #fff;
+        color: #000000;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hisbtn">
+      <form method="GET" action="/history"><button>History</button></form>
+    </div>
+    <br /><br /><br />
+    <div class="chat-container">
+      <center>
+        <div class="chat-messages" id="chat-messages">Enter prompt here</div>
+      </center>
+      <form method="POST" action="/chats" class="chat-form">
+        <div class="chat-input">
+          <input
+            type="text"
+            placeholder="Enter prompt"
+            name="prompted"
+            required
+            class="input-box"
+          />
+          <button id="send-btn" class="send-btn">Send</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

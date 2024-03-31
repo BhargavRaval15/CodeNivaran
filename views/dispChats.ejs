@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Website</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("https://source.unsplash.com/featured/?coding");
+        background-size: cover;
+      }
+
+      .container {
+        width: 50%; /* Increased width */
+        margin: 20px auto;
+        padding-top: 20px;
+        text-align: center;
+        margin-top: 10%;
+        padding: 20px; /* Increased padding */
+        border-radius: 20px; /* Rounded corners */
+        background-color: rgba(255, 255, 255, 0.527); /* Semi-transparent background */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+      }
+
+      .message-container {
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        background-color: #ffffff6c;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .response {
+        color: #333333;
+        margin: 10px 0; /* Increased margin */
+        font-size: 18px; /* Increased font size */
+        line-height: 1.6; /* Increased line height */
+      }
+
+      .prompt {
+        color: #666666;
+        margin: 10px 0; /* Increased margin */
+        font-size: 18px; /* Increased font size */
+      }
+
+      .delete-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .delete-btn:hover {
+        background-color: #d32f2f;
+      }
+
+      .new-chat-btn {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 20px;
+      }
+
+      .new-chat-btn:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <% let recentResponse = null; %> <% for(let chat of Allchats){ %> <%
+        recentResponse = chat.response; %> <% } %> <% if (recentResponse) { %>
+        <div class="message-container">
+          <p class="response"><pre><%= recentResponse %></pre></p>
+        </div>
+        <% } %>
+      </div>
+      <div class="errormes"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT Prompt Interface</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+      }
+
+      .chat-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        justify-content: center;
+        position: relative;
+        top: 20%;
+      }
+
+      .chat-messages {
+        padding: 20px;
+        overflow-y: auto;
+        height: 300px;
+      }
+
+      .message {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .user {
+        font-weight: bold;
+        color: #007bff;
+        margin-right: 5px;
+      }
+
+      .text {
+        background-color: #f0f0f0;
+        padding: 10px;
+        border-radius: 12px;
+        max-width: 70%;
+        word-wrap: break-word;
+      }
+
+      .chat-input {
+        padding: 10px;
+        border-top: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .input-box {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        outline: none;
+      }
+
+      .send-btn {
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .send-btn:hover {
+        background-color: #0056b3;
+      }
+      .contain {
+        position: relative;
+
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contain">
+      <div class="chat-container">
+        <div class="chat-messages" id="chat-messages">
+          <% let recentResponse = null; %> <% for(let chat of Allchats){ %> <%
+          recentResponse = chat.response; %> <% } %> <% if (recentResponse) { %>
+          <div class="message-container">
+            <p class="response">Prompt : <%= recentResponse %></p>
+          </div>
+          <% } %>
+        </div>
+        <div class="chat-input">
+          <form method="GET" action="mainchat" class="chat-form">
+            <input
+              type="text"
+              placeholder="Enter prompt"
+              name="prompted"
+              required
+              class="chat-input"
+            />
+            <button class="submit-btn">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                class="text-white dark:text-black"
+              >
+                <path
+                  d="M7 11L12 6L17 11M12 18V7"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
